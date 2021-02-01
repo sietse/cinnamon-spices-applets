@@ -14,7 +14,7 @@
  *
  */
 
-const AppletUUID = "hamster@projecthamster.wordpress.com";
+const AppletUUID = "hamster2@projecthamster.wordpress.com";
 
 const Applet = imports.ui.applet;
 const Clutter = imports.gi.Clutter;
@@ -306,7 +306,7 @@ HamsterApplet.prototype = {
                                               "org.gnome.Hamster.WindowServer",
                                               "/org/gnome/Hamster/WindowServer");
 
-        this.settings = new Settings.AppletSettings(this, "hamster@projecthamster.wordpress.com", instance_id);
+        this.settings = new Settings.AppletSettings(this, "hamster2@projecthamster.wordpress.com", instance_id);
 
         this.path = metadata.path;
 

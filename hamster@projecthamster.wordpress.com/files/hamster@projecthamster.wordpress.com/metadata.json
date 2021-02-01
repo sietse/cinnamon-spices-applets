@@ -1,14 +1,14 @@
 {
-    "description": "Cinnamon applet for project hamster - the GNOME time tracker",
-    "extension-id": "project-hamster",
-    "name": "Project Hamster Applet",
+    "description": "Cinnamon applet for project hamster 2 - the GNOME time tracker",
+    "extension-id": "project-hamster2",
+    "name": "Project Hamster2 Applet",
     "original-authors": [
         "toms.baugis@gmail.com",
         "jerome@oufella.com",
         "jonbrett.dev@gmail.com"
     ],
     "url": "https://github.com/projecthamster/cinnamon-applet",
-    "uuid": "hamster@projecthamster.wordpress.com",
+    "uuid": "hamster2@projecthamster.wordpress.com",
     "version": 0.2,
     "external-configuration-app": "prefs.js"
 }
