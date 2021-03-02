@@ -121,7 +121,7 @@ HamsterBox.prototype = {
         box.set_vertical(true);
 
         let label = new St.Label({style_class: 'popup-subtitle-menu-item', style: 'font-weight: bold'});
-        label.set_text(_("What are you doing?\n\n" + EXAMPLES));
+        label.set_text(_("What are you doing?"));
         box.add(label);
 
         this._textEntry = new St.Entry({name: 'searchEntry',
@@ -326,7 +326,15 @@ HamsterApplet.prototype = {
         this.menu = new Applet.AppletPopupMenu(this, orientation);
         this.menuManager.addMenu(this.menu);
 
+        // Create a foldout that displays syntax help
+        let syntaxHelpFoldout = new PopupMenu.PopupSubMenuMenuItem(_("Syntax examples"));
+        this.menu.addMenuItem(syntaxHelpFoldout);
+
+        let syntaxHelpContent = new PopupMenu.PopupMenuItem(EXAMPLES);
+        syntaxHelpFoldout.menu.addMenuItem(syntaxHelpContent)
+
         // Add HamsterBox to menu
+        this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
         let item = new HamsterBox()
         item.connect('activate', Lang.bind(this, this._onActivityEntry));
         this.activityEntry = item;
