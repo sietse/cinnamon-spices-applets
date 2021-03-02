@@ -120,7 +120,7 @@ HamsterBox.prototype = {
         let box = new St.BoxLayout();
         box.set_vertical(true);
 
-        let label = new St.Label({style_class: 'popup-menu-content popup-subtitle-menu-item'});
+        let label = new St.Label({style_class: 'popup-subtitle-menu-item', style: 'font-weight: bold'});
         label.set_text(_("What are you doing?\n\n" + EXAMPLES));
         box.add(label);
 
