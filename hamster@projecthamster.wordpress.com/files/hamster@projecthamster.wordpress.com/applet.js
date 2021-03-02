@@ -526,9 +526,16 @@ HamsterApplet.prototype = {
                 categories.push(fact.category);
         }
 
+        // label is a string like "(no category): 1.8h, yak-shaving: 4h, useful: 1h"
         let label = "";
         for (var category of categories) {
-            label += category + ": " + Stuff.formatDurationHours(byCategory[category]) +  ", ";
+            let category_name = "";
+            if (!category) {
+                category_name = "(no category)";
+            } else {
+                category_name = category;
+            };
+            label += category_name + ": " + Stuff.formatDurationHours(byCategory[category]) +  ", ";
         }
         label = label.slice(0, label.length - 2); // strip trailing comma
         this.activityEntry.summaryLabel.set_text(label);
