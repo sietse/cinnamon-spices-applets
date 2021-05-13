@@ -90,6 +90,27 @@ function HamsterBox() {
     this._init.apply(this, arguments);
 }
 
+const EXAMPLES = (
+    "Activity input syntax:\n" +
+    "    start [- ][end_time] activity[@category][,, description][,,][#tag one #tag two ...]\n" +
+    "\n" +
+    "Examples:\n" +
+    "    Water flowers\n" +
+    "    9.30-9.45 Water flowers\n" +
+    "    9.30-9.45 Water flowers @balcony #roses #sunny day\n" +
+    "\n" +
+    "An ongoing task only has a start time (absolute or relative):\n" +
+    "    9.30 Water flowers ,, ongoing, started 09:30\n" +
+    "    -20 Water flowers ,, ongoing, started 20 minutes ago\n" +
+    "\n" +
+    "End time can be absolute, a duration, or relative to now:\n" +
+    "    9.00 - 09:20 Water flowers ,, Ended at 09:20\n" +
+    "    9.00 20 Water flowers ,, Lasted for 20 minutes, ended 09:20"
+    "    9.00 -5 Water flowers ,, Ended 5 minutes ago\n" +
+    "    9.00 +10 Water flowers ,, Will end 10 minutes from now\n" +
+);
+
+
 HamsterBox.prototype = {
     __proto__: PopupMenu.PopupBaseMenuItem.prototype,
 
@@ -100,7 +121,7 @@ HamsterBox.prototype = {
         box.set_vertical(true);
 
         let label = new St.Label({style_class: 'popup-menu-content popup-subtitle-menu-item'});
-        label.set_text(_("What are you doing?"))
+        label.set_text(_("What are you doing?\n\n" + EXAMPLES));
         box.add(label);
 
         this._textEntry = new St.Entry({name: 'searchEntry',
