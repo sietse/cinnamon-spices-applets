@@ -326,8 +326,16 @@ HamsterApplet.prototype = {
         this.menu = new Applet.AppletPopupMenu(this, orientation);
         this.menuManager.addMenu(this.menu);
 
-        // Create a foldout that displays syntax help
-        let syntaxHelpFoldout = new PopupMenu.PopupSubMenuMenuItem(_("Syntax examples"));
+        // Add link to menu: Hamster activity input, in Gnome help browser
+        let syntaxHelpLink = new PopupMenu.PopupImageMenuItem(
+            'Input Help',
+            'help-faq-symbolic'
+        );
+        syntaxHelpLink.connect('activate', function() { Gtk.show_uri(null, "help:hamster/input", null) });
+        this.menu.addMenuItem(syntaxHelpLink);
+
+        // Add foldout with input examples to menu
+        let syntaxHelpFoldout = new PopupMenu.PopupSubMenuMenuItem(_("Input Examples"));
         this.menu.addMenuItem(syntaxHelpFoldout);
 
         let syntaxHelpContent = new PopupMenu.PopupMenuItem(EXAMPLES);
